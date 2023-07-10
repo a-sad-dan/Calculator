@@ -188,7 +188,12 @@ footer {
     margin: 32px;
 }
 
-
+/* Special CSS */
+/* to remove the blue-box on tap */
+*
+{
+    -webkit-tap-highlight-color: transparent;
+}
 
 /* Animations and Color Transitions */
 html {
