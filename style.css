@@ -12,7 +12,8 @@ html {
 
 body {
     background-color: var(--background-color);
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,13 +84,14 @@ img.inactive {
 /* Color Swatch */
 #theme {
     width: 110px;
-    height: 700px;
+    max-height: 700px;
+    height: 80vh;
     border-radius: 32px;
     background-color: var(--control-bg);
     position: fixed;
-    right: 96px;
+    left: 96px;
     top: 50vh;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, -50%);
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     gap: 20px;
@@ -101,8 +103,10 @@ img.inactive {
 
 
 .color-swatch {
-    width: 65px;
-    height: 65px;
+    max-width: 60px;
+    width: 90%;
+    max-height: 60px;
+    height: 90%;
     border-radius: 24px;
     background: var(--button-bg);
     box-shadow: 2px 2px 22px -10px rgba(0, 0, 0, 0.2) inset;
@@ -210,7 +214,7 @@ button {
 
 /* For Mobile Phones Portrait or Landscape View */
 @media screen and (max-device-width: 640px) {
-    header > p, #theme ,footer
+    header > p,footer
     {
         display: none;
     }
@@ -252,5 +256,30 @@ button {
         top: 16px;
         left: 50%;
         transform: translate(-50%,50%);
-    }    
+    }
+    #theme 
+    {   
+        position: fixed;
+        width: 100%;
+        height: 25vh;
+        top: 0px;
+        left: 50vw;
+        transform: translate(-50%,-90%);
+        z-index: 1;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(2,1fr);
+        border-radius: 0 0 28px 28px;
+        box-shadow: 2px 2px 22px -10px rgba(0, 0, 0, 0.2);
+        
+        z-index: 3;
+        cursor: pointer;
+
+        /* animation */
+        transition: transform 350ms ease-out,background-color 200ms ease-in ;
+    }
+
+    .slide-out
+    {
+        transform: translate(-50%,0px) !important;
+    }
 }
