@@ -7,7 +7,7 @@
 }
 
 html {
-    filter: invert(0.);
+    filter: invert(0.0);
 }
 
 body {
@@ -139,17 +139,39 @@ img.inactive {
     /* margin-bottom: 16px; */
 }
 
-.old-calc {
+#old-calc {
     font-size: 22px;
     text-align: right;
     color: var(--text-color);
 }
 
-.result {
+#old-calc a {
+    color: var(--text-color);
+    text-decoration: overline;
+    cursor: cell;
+}
+
+color: var(--text-color);
+
+#old-calc a:visited {
+    color: var(--button-operation);
+}
+
+#old-calc a:hover {
+    color: var(--button-key);
+}
+
+
+#result {
     font-size: 48px;
     color: var(--text-color);
     text-align: right;
     font-weight: 700;
+}
+#result, #old-calc
+{
+    width: 100%;
+    overflow: scroll;
 }
 
 
@@ -183,7 +205,7 @@ img.inactive {
     color: var(--button-key);
 }
 
-.operation {
+.operation-color {
     color: var(--button-operation);
 }
 
@@ -200,8 +222,7 @@ footer {
 
 /* Special CSS */
 /* to remove the blue-box on tap */
-*
-{
+* {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -211,81 +232,80 @@ html {
 }
 
 button {
-    transition: color 300ms ease-in;
+    transition: color 300ms ease-in, box-shadow 120ms ease-in-out;
 }
 
+button:active {
+    /* border: 1px solid #c4c4c4; */
+    box-shadow: 0px 0px 20px -12px rgba(0, 0, 0, 0.2) inset
+}
 
 
 /* Media queries for responsiveness */
 
 /* For Mobile Phones Portrait or Landscape View */
 @media screen and (max-device-width: 640px) {
-    header > p,footer
-    {
+
+    header>p,
+    footer {
         display: none;
     }
 
-    #main-area
-    {
+    #main-area {
         max-width: 500px;
     }
 
-    #screen
-    {
+    #screen {
         background-color: var(--background-color);
         max-width: 500px;
         width: 100%;
     }
-    #controls
-    {
+
+    #controls {
         max-width: 500px;
         width: 100%;
     }
 
 
-    #main-area
-    {
+    #main-area {
         width: 100vw;
         justify-content: flex-end;
         gap: 4px;
-        
+
     }
 
-    body
-    {
+    body {
         justify-content: flex-end;
         gap: 0px;
     }
-    
-    #mode
-    {
+
+    #mode {
         top: 16px;
         left: 50%;
-        transform: translate(-50%,50%);
+        transform: translate(-50%, 50%);
     }
-    #theme 
-    {   
+
+    #theme {
         position: fixed;
         width: 100%;
         height: 25vh;
         top: 0px;
         left: 50vw;
-        transform: translate(-50%,-90%);
+        transform: translate(-50%, -90%);
         z-index: 1;
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: repeat(2,1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         border-radius: 0 0 28px 28px;
         /* box-shadow: 2px 2px 22px -10px rgba(0, 0, 0, 0.2); */
-        
+
         z-index: 3;
         cursor: pointer;
 
         /* animation */
-        transition: transform 550ms ease,background-color 200ms ease-in ;
+        transition: transform 550ms ease, background-color 200ms ease-in;
     }
 
-    .slide-out
-    {
-        transform: translate(-50%,0px) !important;
+    .slide-out {
+        transform: translate(-50%, 0px) !important;
     }
 }
