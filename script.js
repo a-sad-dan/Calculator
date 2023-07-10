@@ -128,12 +128,26 @@ changeTheme();
 
 for (let i = 0; i < 8; i++) {
     const currentSwatch = document.querySelector(`.color_${i}`);
-    console.log(currentSwatch);
     currentSwatch.style.backgroundColor = themes[i].buttonBg;
 
-    currentSwatch.addEventListener('click', () =>
-    {
-       themeNumber = i;
-       changeTheme(); 
+    currentSwatch.addEventListener('click', () => {
+        themeNumber = i;
+        changeTheme();
     });
 }
+
+// Toggling the sliding of the Theme Picker
+const theme = document.querySelector('#theme');
+
+let timeoutId;
+
+theme.addEventListener('click', () => {
+    clearTimeout(timeoutId);
+    theme.classList.add('slide-out');
+    timeoutId = setTimeout(()=>{
+        theme.classList.remove('slide-out');
+    },2000)
+});
+
+// Removing the theme picker if the calculator is touched
+document.querySelector('#main-area').addEventListener('click',()=>theme.classList.remove('slide-out'));
