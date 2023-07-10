@@ -281,7 +281,7 @@ button {
         cursor: pointer;
 
         /* animation */
-        transition: transform 350ms ease-out,background-color 200ms ease-in ;
+        transition: transform 550ms ease,background-color 200ms ease-in ;
     }
 
     .slide-out
