@@ -208,6 +208,7 @@ OperationBtnArr.forEach((button) => button.addEventListener('click', () => {
 function clearScreen() {
     result.textContent = '';
     oldCalc.textContent = '';
+    oldCalc.innerHTML = '<a href="https://a-sad-dan.github.io/rock-paper-scissors/" target="_blank">rock-paper-scissors?</a>'
 }
 
 // To prevent the number from overflowing
@@ -230,8 +231,3 @@ function displayResult() {
 function backspace() {
     result.textContent = result.textContent.slice(0, -1);
 }
-result.addEventListener('click', () => {
-    result.select();
-    result.setSelectionRange(0, 9999); // For mobile devices
-    document.execCommand('copy');
-})
