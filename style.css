@@ -275,7 +275,7 @@ button {
         grid-template-columns: repeat(4,1fr);
         grid-template-rows: repeat(2,1fr);
         border-radius: 0 0 28px 28px;
-        box-shadow: 2px 2px 22px -10px rgba(0, 0, 0, 0.2);
+        /* box-shadow: 2px 2px 22px -10px rgba(0, 0, 0, 0.2); */
         
         z-index: 3;
         cursor: pointer;
